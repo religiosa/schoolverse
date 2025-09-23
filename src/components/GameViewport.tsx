@@ -5,6 +5,21 @@ import { Button } from './ui/button';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { StudentDialog } from './StudentDialog';
 import { TutorDialog } from './TutorDialog';
+import corridorUrl from '../images/corridor.png';
+import studentroomUrl from '../images/studentroom.png';
+import teachersloungeUrl from '../images/teacherslounge.png';
+import teacher1Url from '../images/teacher1.png';
+import teacher2Url from '../images/teacher2.png';
+import teacher3Url from '../images/teacher3.png';
+import teacher4Url from '../images/teacher4.png';
+import teacher5Url from '../images/teacher5.png';
+import student1Url from '../images/student1.png';
+import student2Url from '../images/student2.png';
+import student3Url from '../images/student3.png';
+import student4Url from '../images/student4.png';
+import student5Url from '../images/student5.png';
+import tutor1Url from '../images/tutor1.png';
+import tutor2Url from '../images/tutor2.png';
 
 export interface Teacher {
   id: string;
@@ -45,7 +60,7 @@ export function GameViewport() {
       id: 'teacher1',
       name: 'Laura Schillingford',
       subject: 'Mathematics',
-      avatar: 'src/assets/teacher1.png',
+      avatar: teacher1Url,
       description: 'Expert in Algebra and Calculus with 10 years of experience.',
       videoUrl: 'https://example.com/math-intro',
       personType: 'teacher',
@@ -56,7 +71,7 @@ export function GameViewport() {
       id: 'teacher2',
       name: 'Tina Parsons',
       subject: 'Science',
-      avatar: 'src/assets/teacher2.png',
+      avatar: teacher2Url,
       description: 'Physics and Chemistry specialist, loves hands-on experiments.',
       videoUrl: 'https://example.com/science-intro',
       personType: 'teacher',
@@ -67,7 +82,7 @@ export function GameViewport() {
       id: 'teacher3',
       name: 'Fawn Nicholls',
       subject: 'English',
-      avatar: 'src/assets/teacher3.png',
+      avatar: teacher3Url,
       description: 'Literature enthusiast and creative writing mentor.',
       videoUrl: 'https://example.com/english-intro',
       personType: 'teacher',
@@ -81,7 +96,7 @@ export function GameViewport() {
       id: 'teacher4',
       name: 'Isabella Doyle',
       subject: 'History',
-      avatar: 'src/assets/teacher4.png',
+      avatar: teacher4Url,
       description: 'World History expert with a passion for ancient civilizations.',
       videoUrl: 'https://example.com/history-intro',
       personType: 'teacher',
@@ -92,7 +107,7 @@ export function GameViewport() {
       id: 'teacher5',
       name: 'Alan Ruell',
       subject: 'Art',
-      avatar: 'src/assets/teacher5.png',
+      avatar: teacher5Url,
       description: 'Creative arts instructor who loves inspiring young artists.',
       videoUrl: 'https://example.com/art-intro',
       personType: 'teacher',
@@ -103,7 +118,7 @@ export function GameViewport() {
       id: 'tutor2',
       name: 'Scout Anderson',
       interests: ['Skateboarding', 'Electronics'],
-      avatar: 'src/assets/tutor2.png',
+      avatar: tutor2Url,
       description: "",
       currentClass: '9A',
       videoUrl: 'https://example.com/tutor2-intro',
@@ -118,7 +133,7 @@ export function GameViewport() {
       id: 'student1',
       name: 'Nathaniel Downey',
       interests: ['History', 'Football'],
-      avatar: 'src/assets/student1.png',
+      avatar: student1Url,
       description: "",
       currentClass: '7A',
       videoUrl: 'https://example.com/student1-intro',
@@ -130,7 +145,7 @@ export function GameViewport() {
       id: 'student2',
       name: 'Roderick Harvey',
       interests: ['Art', 'Music (Playing)'],
-      avatar: 'src/assets/student2.png',
+      avatar: student2Url,
       description: "",
       currentClass: '7C',
       videoUrl: 'https://example.com/student2-intro',
@@ -142,7 +157,7 @@ export function GameViewport() {
       id: 'student3',
       name: 'Skye Franklin',
       interests: ['Sports', 'Anime'],
-      avatar: 'src/assets/student3.png',
+      avatar: student3Url,
       description: "",
       currentClass: '7C',
       videoUrl: 'https://example.com/student3-intro',
@@ -154,7 +169,7 @@ export function GameViewport() {
       id: 'student4',
       name: 'Sapphire Ramsey',
       interests: ['Movies', 'Cooking'],
-      avatar: 'src/assets/student4.png',
+      avatar: student4Url,
       description: "",
       currentClass: '7B',
       videoUrl: 'https://example.com/student4-intro',
@@ -166,7 +181,7 @@ export function GameViewport() {
       id: 'student5',
       name: 'Maisie Vaughn',
       interests: ['Baking', 'Music (Listening)'],
-      avatar: 'src/assets/student5.png',
+      avatar: student5Url,
       description: "",
       currentClass: '7B',
       videoUrl: 'https://example.com/student5-intro',
@@ -178,7 +193,7 @@ export function GameViewport() {
       id: 'tutor1',
       name: 'Ivor Webb',
       interests: ['Art', 'Karate', 'Animals'],
-      avatar: 'src/assets/tutor1.png',
+      avatar: tutor1Url,
       description: "",
       currentClass: '9C',
       videoUrl: 'https://example.com/tutor1-intro',
@@ -217,21 +232,21 @@ export function GameViewport() {
       <div className="absolute inset-0">
         {currentRoom === 'teachersLounge' && (
           <ImageWithFallback 
-            src="src/assets/ef4fbb3ec1dbde9bd9f514fee9d01a7bdb68782d.png"
+            src={teachersloungeUrl}
             alt="Teachers' Lounge"
             className="w-full h-full object-cover"
           />
         )}
         {currentRoom === 'corridor' && (
           <ImageWithFallback 
-            src="src/assets/2.png"
+            src={corridorUrl}
             alt="School Corridor"
             className="w-full h-full object-cover"
           />
         )}
         {currentRoom === 'studentRoom' && (
           <ImageWithFallback 
-            src="src/assets/studentroom.png"
+            src={studentroomUrl}
             alt="Student Room"
             className="w-full h-full object-cover"
           />
