@@ -7,15 +7,19 @@ import { ShopView } from './ShopView';
 import { X } from 'lucide-react';
 import { Button } from './ui/button';
 
+export interface ColorSelection {
+  name: string;
+  image: string;
+  color: string;
+}
+
 export interface PlayerData {
   gameCoins: number;
   interests: string[];
   ownedDecorations: string[];
   selectedDecoration: string | null;
-  skinColor: string;
-  hairStyle: string;
-  hairColor: string;
-  shirtColor: string;
+  hairColor: ColorSelection;
+  shirtColor: ColorSelection;
 }
 
 interface SettingsViewProps {
@@ -27,7 +31,7 @@ interface SettingsViewProps {
 export function SettingsView({ onClose, playerData, onUpdatePlayerData }: SettingsViewProps) {
   return (
     <motion.div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 z-100"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}

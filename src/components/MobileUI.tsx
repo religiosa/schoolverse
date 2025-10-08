@@ -17,12 +17,6 @@ export function MobileUI({ onToggleMap, isMapExpanded, onOpenSettings, playerCoi
       {/* Top Navigation Bar */}
       <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-r from-blue-600 to-purple-700 flex items-center justify-between px-4 z-40 border-b-4 border-gray-800">
         <div className="flex items-center space-x-2">
-          {/* Coin Display */}
-          <div className="bg-yellow-400 px-3 py-1 rounded-lg border-2 border-yellow-600 flex items-center space-x-1">
-            <span className="text-sm">🪙</span>
-            <span className="text-gray-900 text-sm">{playerCoins}</span>
-          </div>
-
           <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
             🏫
           </div>
@@ -30,6 +24,12 @@ export function MobileUI({ onToggleMap, isMapExpanded, onOpenSettings, playerCoi
         </div>
 
         <div className="flex items-center space-x-2">
+          {/* Coin Display */}
+          <div className="bg-yellow-400 px-3 py-1 rounded-lg border-2 border-yellow-600 flex items-center space-x-1">
+            <span className="text-sm">🪙</span>
+            <span className="text-gray-900 text-sm">{playerCoins}</span>
+          </div>
+
           <button
             className="w-8 h-8 bg-white/20 hover:bg-white/30 rounded-lg flex items-center justify-center transition-colors"
             onClick={onToggleMap}

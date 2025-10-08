@@ -4,6 +4,8 @@ import { GameViewport } from './components/GameViewport';
 import { MobileUI } from './components/MobileUI';
 import { SettingsView, PlayerData } from './components/SettingsView';
 import { Toaster } from './components/ui/sonner';
+import brownhair from './images/brown_hair.png';
+import blueshirt from './images/blue_shirt.png';
 
 export default function App() {
   const [isMapExpanded, setIsMapExpanded] = useState(false);
@@ -13,10 +15,8 @@ export default function App() {
     interests: [],
     ownedDecorations: [],
     selectedDecoration: null,
-    skinColor: 'from-orange-200 to-orange-300',
-    hairStyle: 'Short',
-    hairColor: 'from-amber-800 to-amber-700',
-    shirtColor: 'from-blue-400 to-blue-500',
+    hairColor: {name: 'Brown', image: brownhair, color: 'from-amber-800 to-amber-700'},
+    shirtColor: {name: 'Blue', image: blueshirt, color: 'from-blue-400 to-blue-500'},
   });
 
   const updatePlayerData = (updates: Partial<PlayerData>) => {

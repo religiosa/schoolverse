@@ -64,7 +64,7 @@ export function GameViewport() {
       description: 'Expert in Algebra and Calculus with 10 years of experience.',
       videoUrl: 'https://example.com/math-intro',
       personType: 'teacher',
-      depth: 20,
+      depth: 30,
       position: -30
     },
     {
@@ -75,7 +75,7 @@ export function GameViewport() {
       description: 'Physics and Chemistry specialist, loves hands-on experiments.',
       videoUrl: 'https://example.com/science-intro',
       personType: 'teacher',
-      depth: 25,
+      depth: 35,
       position: 12
     },
     {
@@ -86,7 +86,7 @@ export function GameViewport() {
       description: 'Literature enthusiast and creative writing mentor.',
       videoUrl: 'https://example.com/english-intro',
       personType: 'teacher',
-      depth: 50,
+      depth: 60,
       position: -17
     }
   ];
@@ -100,7 +100,7 @@ export function GameViewport() {
       description: 'World History expert with a passion for ancient civilizations.',
       videoUrl: 'https://example.com/history-intro',
       personType: 'teacher',
-      depth: 35,
+      depth: 45,
       position: -10
     },
     {
@@ -111,7 +111,7 @@ export function GameViewport() {
       description: 'Creative arts instructor who loves inspiring young artists.',
       videoUrl: 'https://example.com/art-intro',
       personType: 'teacher',
-      depth: 20,
+      depth: 30,
       position: 0
     },
     {
@@ -123,7 +123,7 @@ export function GameViewport() {
       currentClass: '9A',
       videoUrl: 'https://example.com/tutor2-intro',
       personType: 'tutor',
-      depth: 10,
+      depth: 30,
       position: 20
     }
   ];
@@ -138,8 +138,8 @@ export function GameViewport() {
       currentClass: '7A',
       videoUrl: 'https://example.com/student1-intro',
       personType: 'student',
-      depth: 35,
-      position: -10
+      depth: 55,
+      position: 10
     },
     {
       id: 'student2',
@@ -150,8 +150,8 @@ export function GameViewport() {
       currentClass: '7C',
       videoUrl: 'https://example.com/student2-intro',
       personType: 'student',
-      depth: 20,
-      position: 0
+      depth: 30,
+      position: 20
     },
     {
       id: 'student3',
@@ -162,8 +162,8 @@ export function GameViewport() {
       currentClass: '7C',
       videoUrl: 'https://example.com/student3-intro',
       personType: 'student',
-      depth: 10,
-      position: 10
+      depth: 30,
+      position: 35
     },
     {
       id: 'student4',
@@ -174,7 +174,7 @@ export function GameViewport() {
       currentClass: '7B',
       videoUrl: 'https://example.com/student4-intro',
       personType: 'student',
-      depth: 20,
+      depth: 30,
       position: -15
     },
     {
@@ -186,8 +186,8 @@ export function GameViewport() {
       currentClass: '7B',
       videoUrl: 'https://example.com/student5-intro',
       personType: 'student',
-      depth: 20,
-      position: -20
+      depth: 30,
+      position: 0
     },
     {
       id: 'tutor1',
@@ -213,11 +213,11 @@ export function GameViewport() {
 
   const getAvailableExits = () => {
     if (currentRoom === 'teachersLounge') {
-      return [{ direction: 'corridor', label: 'Go to Corridor', icon: '🚪' }, {direction: 'studentRoom', label: 'Go to Student Room', icon: ''}];
+      return [{ direction: 'corridor', label: 'Go to Corridor', icon: '🚪' }, {direction: 'studentRoom', label: 'Go to Student Room', icon: '📚'}];
     } else if (currentRoom === 'studentRoom') {
       return [{ direction: 'corridor', label: 'Go to Corridor', icon: '🚪' }, {direction: 'teachersLounge', label: 'Go to Teachers\' Lounge', icon: '☕'}];
     } else {
-      return [{ direction: 'teachersLounge', label: 'Go to Teachers\' Lounge', icon: '☕' }, {direction: 'studentRoom', label: 'Go to Student Room', icon: ''}];
+      return [{ direction: 'teachersLounge', label: 'Go to Teachers\' Lounge', icon: '☕' }, {direction: 'studentRoom', label: 'Go to Student Room', icon: '📚'}];
     }
   };
 
@@ -289,7 +289,7 @@ export function GameViewport() {
             onClick={() => setSelectedPerson(person)}
           >
             <div className="relative">
-              <div className="relative w-80 h-90 flex flex-col items-center">
+              <div className="relative w-80 h-100 flex flex-col items-center">
                   <ImageWithFallback
                     src={person.avatar}
                   />
@@ -341,6 +341,13 @@ export function GameViewport() {
           </Button>
         ))}
       </div>
+
+     {/* Player Status */}
+      <div className="absolute top-4 right-4 bg-black/70 text-white px-4 py-2 rounded-lg">
+        <div className="text-sm">👤 Student View</div>
+        <div className="text-xs opacity-90">Teachers nearby: {getCurrentPeople().length}</div>
+      </div>
+
 
       {/* Instructions */}
       <div className="absolute bottom-4 right-4 bg-black/70 text-white px-4 py-2 rounded-lg max-w-xs">
