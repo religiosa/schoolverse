@@ -2,9 +2,26 @@ import { useState } from 'react';
 import { motion } from 'motion/react';
 import { GameViewport } from './components/GameViewport';
 import { MobileUI } from './components/MobileUI';
+import { SettingsView, PlayerData } from './components/SettingsView';
+import { Toaster } from './components/ui/sonner';
 
 export default function App() {
   const [isMapExpanded, setIsMapExpanded] = useState(false);
+  const [showSettings, setShowSettings] = useState(false);
+  const [playerData, setPlayerData] = useState<PlayerData>({
+    gameCoins: 250, // Starting coins
+    interests: [],
+    ownedDecorations: [],
+    selectedDecoration: null,
+    skinColor: 'from-orange-200 to-orange-300',
+    hairStyle: 'Short',
+    hairColor: 'from-amber-800 to-amber-700',
+    shirtColor: 'from-blue-400 to-blue-500',
+  });
+
+  const updatePlayerData = (updates: Partial<PlayerData>) => {
+    setPlayerData(prev => ({ ...prev, ...updates }));
+  };
 
   return (
     <div className="w-full h-screen bg-gray-900 relative overflow-hidden">
@@ -31,6 +48,18 @@ export default function App() {
         </div>
       </motion.div>
 
+      {/* Demo Info Panel */}
+      <div className="absolute top-20 left-4 bg-black/80 text-white p-4 rounded-lg border border-gray-600 max-w-xs">
+        <h3 className="font-medium mb-2">🎮 First-Person School</h3>
+        <ul className="text-sm space-y-1">
+          <li>• Click teachers to interact (💬)</li>
+          <li>• Navigate between rooms (🚪)</li>
+          <li>• Explore in first-person view</li>
+          <li>• Experience realistic perspective</li>
+          <li>• Use mobile UI controls</li>
+        </ul>
+      </div>
+
       {/* Game Stats */}
       <div className="absolute top-20 right-4 bg-black/80 text-white p-4 rounded-lg border border-gray-600">
         <div className="text-sm space-y-1">
@@ -44,7 +73,21 @@ export default function App() {
       <MobileUI 
         onToggleMap={() => setIsMapExpanded(!isMapExpanded)}
         isMapExpanded={isMapExpanded}
+        onOpenSettings={() => setShowSettings(true)}
+        playerCoins={playerData.gameCoins}
       />
+
+      {/* Settings View */}
+      {showSettings && (
+        <SettingsView
+          onClose={() => setShowSettings(false)}
+          playerData={playerData}
+          onUpdatePlayerData={updatePlayerData}
+        />
+      )}
+
+      {/* Toast Notifications */}
+      <Toaster position="top-center" richColors />
 
       {/* Loading Screen Simulation */}
       <motion.div

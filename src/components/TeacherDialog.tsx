@@ -1,8 +1,16 @@
 import { motion } from 'motion/react';
 import { Button } from './ui/button';
 import { Card } from './ui/card';
-import { ImageWithFallback } from './figma/ImageWithFallback';
-import { Teacher } from './GameViewport';
+
+interface Teacher {
+  id: string;
+  name: string;
+  subject: string;
+  position: { x: number; y: number };
+  avatar: string;
+  description: string;
+  videoUrl: string;
+}
 
 interface TeacherDialogProps {
   teacher: Teacher;
@@ -17,7 +25,7 @@ export function TeacherDialog({ teacher, onClose }: TeacherDialogProps) {
 
   return (
     <motion.div
-      className="absolute inset-0 bg-black/50 flex items-center justify-center z-100"
+      className="absolute inset-0 bg-black/50 flex items-center justify-center z-50"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -35,7 +43,7 @@ export function TeacherDialog({ teacher, onClose }: TeacherDialogProps) {
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-3">
                 <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center text-2xl">
-                  <ImageWithFallback src={teacher.avatar} />
+                  {teacher.avatar}
                 </div>
                 <div>
                   <h2 className="font-medium">{teacher.name}</h2>
@@ -72,9 +80,8 @@ export function TeacherDialog({ teacher, onClose }: TeacherDialogProps) {
               <h3 className="font-medium text-gray-900">Actions</h3>
               
               <Button 
-                variant="outline"
-                className="w-full border-2 border-red-500 text-red-700 hover:bg-red-50"
                 onClick={handleWatchVideo}
+                className="w-full bg-red-500 hover:bg-red-600 text-white border-2 border-red-700"
               >
                 🎥 Watch Introduction Video
               </Button>
