@@ -20,11 +20,11 @@ All the images are made by Canva AI tools and modified by the author of this rep
 
   This is a code bundle for Mobile Game Mockup. The original project is available at https://www.figma.com/design/cReTq90kxJvNnl8Aftk2td/Mobile-Game-Mockup.
 
-  #¤# Running the code
+  ### Running the code
 
   Run `npm i` to install the dependencies.
 
   Run `npm run dev` to start the development server.
 
-The code is also running in Github Pages: http://localhost:3000/schoolverse/
+The code is also running in Github Pages: https://religiosa.github.io/schoolverse/
   
