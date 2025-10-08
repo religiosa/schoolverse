@@ -5,9 +5,11 @@ import { Button } from './ui/button';
 interface MobileUIProps {
   onToggleMap: () => void;
   isMapExpanded: boolean;
+  onOpenSettings: () => void;
+  playerCoins: number;
 }
 
-export function MobileUI({ onToggleMap, isMapExpanded }: MobileUIProps) {
+export function MobileUI({ onToggleMap, isMapExpanded, onOpenSettings, playerCoins }: MobileUIProps) {
   const [showMenu, setShowMenu] = useState(false);
 
   return (
@@ -15,6 +17,12 @@ export function MobileUI({ onToggleMap, isMapExpanded }: MobileUIProps) {
       {/* Top Navigation Bar */}
       <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-r from-blue-600 to-purple-700 flex items-center justify-between px-4 z-40 border-b-4 border-gray-800">
         <div className="flex items-center space-x-2">
+          {/* Coin Display */}
+          <div className="bg-yellow-400 px-3 py-1 rounded-lg border-2 border-yellow-600 flex items-center space-x-1">
+            <span className="text-sm">🪙</span>
+            <span className="text-gray-900 text-sm">{playerCoins}</span>
+          </div>
+
           <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
             🏫
           </div>
@@ -70,7 +78,7 @@ export function MobileUI({ onToggleMap, isMapExpanded }: MobileUIProps) {
         <Button
           variant="ghost"
           className="flex flex-col items-center space-y-1 text-white hover:bg-white/10"
-          onClick={() => alert('Opening settings...')}
+          onClick={onOpenSettings}
         >
           <span className="text-lg">⚙️</span>
           <span className="text-xs">Settings</span>
