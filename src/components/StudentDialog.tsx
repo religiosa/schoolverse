@@ -11,20 +11,16 @@ interface StudentDialogProps {
 
 export function StudentDialog({ student, onClose }: StudentDialogProps) {
   const handleStudyTogether = () => {
-    alert(`Great! You and ${student.name} are now study buddies!\n\n"Let's ace this together!" - ${student.name}`);
+    alert(`Hienoa! Sinä ja ${student.name} olette nyt opiskelutovereita!`);
   };
 
   const handlePlayGame = () => {
-    alert(`${student.name} suggests playing a quick trivia game!\n\n"I know some cool facts about ${student.interests[0]}!" - ${student.name}`);
+    alert(`${student.name} ehdottaa yhteistä tietovisaa!\n\n"Koska ${student.interests[0]} on mun lempijuttuja, mä tiedän siitä yhtä ja toista..." - ${student.name.split(" ")[0]}`);
   };
 
   const handleJoinActivity = () => {
     const activity = student.interests[Math.floor(Math.random() * student.interests.length)];
-    alert(`${student.name} invites you to join their ${activity} club!\n\n"It's so much fun, you should totally join us!" - ${student.name}`);
-  };
-
-  const handleShareNotes = () => {
-    alert(`${student.name} offers to share their ${student.currentClass} notes with you!\n\n"I took really good notes in today's class!" - ${student.name}`);
+    alert(`${student.name} kutsuu sinut kerhoon ${activity}!\n\n"Tuu mukaan, se on hauskaa!" - ${student.name.split(" ")[0]}`);
   };
 
   return (
@@ -65,7 +61,7 @@ export function StudentDialog({ student, onClose }: StudentDialogProps) {
           {/* Content */}
           <div className="p-6 space-y-4">
             <div>
-              <h3 className="font-medium text-gray-900 mb-2">About Me</h3>
+              <h3 className="font-medium text-gray-900 mb-2">Tietoja minusta</h3>
               <p className="text-sm text-gray-700">{student.description}</p>
             </div>
 
@@ -73,14 +69,14 @@ export function StudentDialog({ student, onClose }: StudentDialogProps) {
               <div className="bg-green-50 p-3 rounded-lg border-2 border-green-200">
                 <div className="flex items-center space-x-2 mb-1">
                   <span className="text-lg">📍</span>
-                  <span className="text-xs font-medium text-green-700">Current Class</span>
+                  <span className="text-xs font-medium text-green-700">Tuleva luokka</span>
                 </div>
                 <span className="text-sm font-medium">{student.currentClass}</span>
               </div>
             </div>
 
             <div>
-              <h3 className="font-medium text-gray-900 mb-2">Hobbies & Interests</h3>
+              <h3 className="font-medium text-gray-900 mb-2">Harrastukset & kiinnostuksen kohteet</h3>
               <div className="flex flex-wrap gap-2">
                 {student.interests.map((hobby, index) => (
                   <span 
@@ -94,22 +90,14 @@ export function StudentDialog({ student, onClose }: StudentDialogProps) {
             </div>
 
             <div className="space-y-3">
-              <h3 className="font-medium text-gray-900">Let's Hang Out!</h3>
+              <h3 className="font-medium text-gray-900">Hengaillaan!</h3>
               
               <Button 
                 variant="outline"
                 className="w-full border-2 border-blue-500 text-blue-700 hover:bg-blue-50"
                 onClick={handleStudyTogether}
               >
-                📖 Study Together
-              </Button>
-
-              <Button 
-                variant="outline"
-                className="w-full border-2 border-green-500 text-green-700 hover:bg-green-50"
-                onClick={handleShareNotes}
-              >
-                📝 Share Notes
+                📖 Opiskelutoveriksi?
               </Button>
 
               <Button 
@@ -117,7 +105,7 @@ export function StudentDialog({ student, onClose }: StudentDialogProps) {
                 className="w-full border-2 border-purple-600 text-purple-700 hover:bg-purple-50"
                 onClick={handleJoinActivity}
               >
-                🎮 Join Activity
+                🎮 Liity kerhoon
               </Button>
 
               <Button 
@@ -125,7 +113,7 @@ export function StudentDialog({ student, onClose }: StudentDialogProps) {
                 className="w-full border-2 border-orange-400 text-orange-700 hover:bg-orange-50"
                 onClick={handlePlayGame}
               >
-                🧠 Play Trivia Game
+                🧠🪙 Pelaa tietovisaa
               </Button>
             </div>
           </div>

@@ -53,15 +53,14 @@ type CurrentRoom = 'teachersLounge' | 'corridor' | 'studentRoom';
 export function GameViewport() {
   const [selectedPerson, setSelectedPerson] = useState<Person | null>(null);
   const [currentRoom, setCurrentRoom] = useState<CurrentRoom>('teachersLounge');
-  const [playerRotation, setPlayerRotation] = useState(0); // Player looking direction (-180 to 180)
 
   const teachersLoungePeople: Teacher[] = [
     {
       id: 'teacher1',
-      name: 'Laura Schillingford',
-      subject: 'Mathematics',
+      name: 'Laura Siikalahti',
+      subject: 'Matematiikka',
       avatar: teacher1Url,
-      description: 'Expert in Algebra and Calculus with 10 years of experience.',
+      description: 'Matematiikan intohimoinen opettaja 10 vuoden kokemuksella.',
       videoUrl: 'https://example.com/math-intro',
       personType: 'teacher',
       depth: 30,
@@ -69,10 +68,10 @@ export function GameViewport() {
     },
     {
       id: 'teacher2',
-      name: 'Tina Parsons',
-      subject: 'Science',
+      name: 'Tiina Persoona',
+      subject: 'Fysiikka ja kemia',
       avatar: teacher2Url,
-      description: 'Physics and Chemistry specialist, loves hands-on experiments.',
+      description: 'Fysiikan ja kemian opettaja. Erityinen mielenkiinto käytännön kokeisiin.',
       videoUrl: 'https://example.com/science-intro',
       personType: 'teacher',
       depth: 35,
@@ -80,10 +79,10 @@ export function GameViewport() {
     },
     {
       id: 'teacher3',
-      name: 'Fawn Nicholls',
-      subject: 'English',
+      name: 'Fanny Nikkilä',
+      subject: 'Suomen kieli ja kirjallisuus',
       avatar: teacher3Url,
-      description: 'Literature enthusiast and creative writing mentor.',
+      description: 'Kirjallisuuden ystävä ja luova kirjoittaja. Äidinkielen opettaja.',
       videoUrl: 'https://example.com/english-intro',
       personType: 'teacher',
       depth: 60,
@@ -95,9 +94,9 @@ export function GameViewport() {
     {
       id: 'teacher4',
       name: 'Isabella Doyle',
-      subject: 'History',
+      subject: 'Historia',
       avatar: teacher4Url,
-      description: 'World History expert with a passion for ancient civilizations.',
+      description: 'Suomen historia ja toinen maailmansota ovat lempiaiheitani. Historian opettaja.',
       videoUrl: 'https://example.com/history-intro',
       personType: 'teacher',
       depth: 45,
@@ -105,10 +104,10 @@ export function GameViewport() {
     },
     {
       id: 'teacher5',
-      name: 'Alan Ruell',
-      subject: 'Art',
+      name: 'Alan Ruokki',
+      subject: 'Kuvataiteet',
       avatar: teacher5Url,
-      description: 'Creative arts instructor who loves inspiring young artists.',
+      description: 'Luova kuvataiteiden opettaja, joka tykkää inspiroida nuoria taiteilijanalkuja.',
       videoUrl: 'https://example.com/art-intro',
       personType: 'teacher',
       depth: 30,
@@ -116,8 +115,8 @@ export function GameViewport() {
     },
     {
       id: 'tutor2',
-      name: 'Scout Anderson',
-      interests: ['Skateboarding', 'Electronics'],
+      name: 'Sanna Anttila',
+      interests: ['Skeittaus / skuuttaus', 'Elektroniikka'],
       avatar: tutor2Url,
       description: "",
       currentClass: '9A',
@@ -131,8 +130,8 @@ export function GameViewport() {
   const studentRoomPeople: Student[] = [
     {
       id: 'student1',
-      name: 'Nathaniel Downey',
-      interests: ['History', 'Football'],
+      name: 'Nuutti Alanko',
+      interests: ['Historia', 'Urheilu', 'Leipominen'],
       avatar: student1Url,
       description: "",
       currentClass: '7A',
@@ -143,8 +142,8 @@ export function GameViewport() {
     },
     {
       id: 'student2',
-      name: 'Roderick Harvey',
-      interests: ['Art', 'Music (Playing)'],
+      name: 'Roderick Harakka',
+      interests: ['Taide', 'Musiikin soittaminen', 'Oboe', 'Patarummut'],
       avatar: student2Url,
       description: "",
       currentClass: '7C',
@@ -155,8 +154,8 @@ export function GameViewport() {
     },
     {
       id: 'student3',
-      name: 'Skye Franklin',
-      interests: ['Sports', 'Anime'],
+      name: 'Meri Frankkila',
+      interests: ['Urheilu', 'Anime', 'K-Pop', 'J-Pop'],
       avatar: student3Url,
       description: "",
       currentClass: '7C',
@@ -167,8 +166,8 @@ export function GameViewport() {
     },
     {
       id: 'student4',
-      name: 'Sapphire Ramsey',
-      interests: ['Movies', 'Cooking'],
+      name: 'Sophia Ramudden',
+      interests: ['Elokuvat', 'Ruoanlaitto', 'Pelit', 'Sarjakuvat'],
       avatar: student4Url,
       description: "",
       currentClass: '7B',
@@ -179,8 +178,8 @@ export function GameViewport() {
     },
     {
       id: 'student5',
-      name: 'Maisie Vaughn',
-      interests: ['Baking', 'Music (Listening)'],
+      name: 'Maisa Vauhkola',
+      interests: ['Leipominen', 'Musiikin kuuntelu', 'Vaellus', 'Partio'],
       avatar: student5Url,
       description: "",
       currentClass: '7B',
@@ -191,8 +190,8 @@ export function GameViewport() {
     },
     {
       id: 'tutor1',
-      name: 'Ivor Webb',
-      interests: ['Art', 'Karate', 'Animals'],
+      name: 'Iivo Verkkonen',
+      interests: ['Taide', 'Karate', 'Eläimet', 'Kirjoittaminen', 'Lukeminen'],
       avatar: tutor1Url,
       description: "",
       currentClass: '9C',
@@ -208,16 +207,16 @@ export function GameViewport() {
   };
 
   const getRoomTitle = () => {
-    return currentRoom === 'teachersLounge' ? "Teachers' Lounge" : (currentRoom === 'corridor' ? 'School Corridor' : 'Student Room');
+    return currentRoom === 'teachersLounge' ? "Opettajainhuone" : (currentRoom === 'corridor' ? 'Käytävä' : 'Oppilaskunnan huone');
   };
 
   const getAvailableExits = () => {
     if (currentRoom === 'teachersLounge') {
-      return [{ direction: 'corridor', label: 'Go to Corridor', icon: '🚪' }, {direction: 'studentRoom', label: 'Go to Student Room', icon: '📚'}];
+      return [{ direction: 'corridor', label: 'Siirry käytävään', icon: '🚪' }, {direction: 'studentRoom', label: 'Siirry oppilaskunnan huoneeseen', icon: '📚'}];
     } else if (currentRoom === 'studentRoom') {
-      return [{ direction: 'corridor', label: 'Go to Corridor', icon: '🚪' }, {direction: 'teachersLounge', label: 'Go to Teachers\' Lounge', icon: '☕'}];
+      return [{ direction: 'corridor', label: 'Siirry käytävään', icon: '🚪' }, {direction: 'teachersLounge', label: 'Siirry opettajainhuoneeseen', icon: '☕'}];
     } else {
-      return [{ direction: 'teachersLounge', label: 'Go to Teachers\' Lounge', icon: '☕' }, {direction: 'studentRoom', label: 'Go to Student Room', icon: '📚'}];
+      return [{ direction: 'teachersLounge', label: 'Siirry opettajainhuoneeseen', icon: '☕' }, {direction: 'studentRoom', label: 'Siirry oppilaskunnan huoneeseen', icon: '📚'}];
     }
   };
 
@@ -233,21 +232,21 @@ export function GameViewport() {
         {currentRoom === 'teachersLounge' && (
           <ImageWithFallback 
             src={teachersloungeUrl}
-            alt="Teachers' Lounge"
+            alt="Opettajainhuone"
             className="w-full h-full object-cover"
           />
         )}
         {currentRoom === 'corridor' && (
           <ImageWithFallback 
             src={corridorUrl}
-            alt="School Corridor"
+            alt="Käytävä"
             className="w-full h-full object-cover"
           />
         )}
         {currentRoom === 'studentRoom' && (
           <ImageWithFallback 
             src={studentroomUrl}
-            alt="Student Room"
+            alt="Oppilaskunnan huone"
             className="w-full h-full object-cover"
           />
         )}
@@ -324,9 +323,6 @@ export function GameViewport() {
       {/* Room Info Display */}
       <div className="absolute top-4 left-4 bg-black/70 text-white px-4 py-2 rounded-lg">
         <h2 className="font-medium">{getRoomTitle()}</h2>
-        <p className="text-sm opacity-90">
-          {currentRoom === 'teachersLounge' ? '☕ Faculty relaxation area' : '🚪 Main school hallway'}
-        </p>
       </div>
 
       {/* Navigation Controls */}
@@ -344,19 +340,8 @@ export function GameViewport() {
 
      {/* Player Status */}
       <div className="absolute top-4 right-4 bg-black/70 text-white px-4 py-2 rounded-lg">
-        <div className="text-sm">👤 Student View</div>
-        <div className="text-xs opacity-90">Teachers nearby: {getCurrentPeople().length}</div>
-      </div>
-
-
-      {/* Instructions */}
-      <div className="absolute bottom-4 right-4 bg-black/70 text-white px-4 py-2 rounded-lg max-w-xs">
-        <div className="text-sm mb-2">🎮 How to Play</div>
-        <ul className="text-xs space-y-1 opacity-90">
-          <li>• Click teachers to interact</li>
-          <li>• Use navigation to move between rooms</li>
-          <li>• Explore the school environment</li>
-        </ul>
+        <div className="text-sm">👤 Oppilaan näkymä</div>
+        <div className="text-xs opacity-90">Henkilöitä näkyvissä: {getCurrentPeople().length}</div>
       </div>
 
       {/* Teacher Dialog */}

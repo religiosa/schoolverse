@@ -24,25 +24,25 @@ export function ShopView({ playerData, onUpdatePlayerData }: ShopViewProps) {
 
   const shopItems: ShopItem[] = [
     // Hats
-    { id: 'crown', name: 'Royal Crown', decoration: '👑', price: 100, category: 'hats', description: 'For the king or queen of the school!' },
-    { id: 'tophat', name: 'Top Hat', decoration: '🎩', price: 75, category: 'hats', description: 'Classy and sophisticated' },
-    { id: 'cap', name: 'Baseball Cap', decoration: '🧢', price: 50, category: 'hats', description: 'Sporty and casual' },
-    { id: 'party', name: 'Party Hat', decoration: '🎉', price: 60, category: 'hats', description: 'Always ready to celebrate!' },
-    { id: 'wizard', name: 'Wizard Hat', decoration: '🧙', price: 90, category: 'hats', description: 'Magical and mystical' },
+    { id: 'crown', name: 'Kruunu', decoration: '👑', price: 100, category: 'hats', description: 'Koulun kunkulle tai kuningattarelle!' },
+    { id: 'tophat', name: 'Silinteri', decoration: '🎩', price: 75, category: 'hats', description: 'Klassinen valinta' },
+    { id: 'cap', name: 'Lippis', decoration: '🧢', price: 50, category: 'hats', description: 'Urheilullinen' },
+    { id: 'party', name: 'Juhlahattu', decoration: '🎉', price: 60, category: 'hats', description: 'Aina valmiina juhlaan!' },
+    { id: 'wizard', name: 'Velhon hattu', decoration: '🧙', price: 90, category: 'hats', description: 'Maaginen ja mystinen' },
     
     // Accessories
-    { id: 'star', name: 'Gold Star', decoration: '⭐', price: 80, category: 'accessories', description: 'You\'re a star student!' },
-    { id: 'sparkle', name: 'Sparkles', decoration: '✨', price: 70, category: 'accessories', description: 'Add some sparkle!' },
-    { id: 'fire', name: 'Fire Effect', decoration: '🔥', price: 85, category: 'accessories', description: 'You\'re on fire!' },
-    { id: 'heart', name: 'Hearts', decoration: '💖', price: 65, category: 'accessories', description: 'Spread the love' },
-    { id: 'lightning', name: 'Lightning Bolt', decoration: '⚡', price: 95, category: 'accessories', description: 'Electrifying!' },
+    { id: 'star', name: 'Tähti', decoration: '⭐', price: 80, category: 'accessories', description: 'Olet tähtioppilas!' },
+    { id: 'sparkle', name: 'Glitter', decoration: '✨', price: 70, category: 'accessories', description: 'Vähän kimalletta!' },
+    { id: 'fire', name: 'Tuliefekti', decoration: '🔥', price: 85, category: 'accessories', description: 'Sä oot lit!' },
+    { id: 'heart', name: 'Sydämet', decoration: '💖', price: 65, category: 'accessories', description: 'Lisää rakkautta' },
+    { id: 'lightning', name: 'Salama', decoration: '⚡', price: 95, category: 'accessories', description: 'Sähköistävä vaihtoehto!' },
     
     // Special
-    { id: 'rainbow', name: 'Rainbow', decoration: '🌈', price: 120, category: 'special', description: 'Ultra rare rainbow effect!' },
-    { id: 'trophy', name: 'Trophy', decoration: '🏆', price: 150, category: 'special', description: 'Champion decoration' },
-    { id: 'medal', name: 'Gold Medal', decoration: '🥇', price: 130, category: 'special', description: 'First place winner!' },
-    { id: 'rocket', name: 'Rocket', decoration: '🚀', price: 140, category: 'special', description: 'Reach for the stars!' },
-    { id: 'diamond', name: 'Diamond', decoration: '💎', price: 200, category: 'special', description: 'Legendary decoration!' },
+    { id: 'rainbow', name: 'Sateenkaari', decoration: '🌈', price: 120, category: 'special', description: 'Ultra-harvinainen sateenkaariefekti!' },
+    { id: 'trophy', name: 'Palkinto', decoration: '🏆', price: 150, category: 'special', description: 'Voittajan valinta' },
+    { id: 'medal', name: 'Kultamitali', decoration: '🥇', price: 130, category: 'special', description: 'Eka!' },
+    { id: 'rocket', name: 'Raketti', decoration: '🚀', price: 140, category: 'special', description: 'Tavoittele tähtiin!' },
+    { id: 'diamond', name: 'Timantti', decoration: '💎', price: 200, category: 'special', description: 'Legendaarinen koristus!' },
   ];
 
   const filteredItems = selectedCategory === 'all' 
@@ -51,12 +51,12 @@ export function ShopView({ playerData, onUpdatePlayerData }: ShopViewProps) {
 
   const purchaseItem = (item: ShopItem) => {
     if (playerData.ownedDecorations.includes(item.decoration)) {
-      toast.error('You already own this decoration!');
+      toast.error('Sinulla on jo tämä koriste!');
       return;
     }
 
     if (playerData.gameCoins < item.price) {
-      toast.error('Not enough coins! Play more to earn coins.');
+      toast.error('Ei tarpeeksi kolikoita! Suorita haasteita saadaksesi lisää kolikoita.');
       return;
     }
 
@@ -66,7 +66,7 @@ export function ShopView({ playerData, onUpdatePlayerData }: ShopViewProps) {
       ownedDecorations: [...playerData.ownedDecorations, item.decoration]
     });
     
-    toast.success(`Purchased ${item.name}! Check it out in Character tab.`);
+    toast.success(`${item.name} ostettu! Löydät sen Avatar-osiosta.`);
   };
 
   const isOwned = (decoration: string) => playerData.ownedDecorations.includes(decoration);
@@ -78,7 +78,7 @@ export function ShopView({ playerData, onUpdatePlayerData }: ShopViewProps) {
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center space-x-2">
             <ShoppingCart className="text-yellow-400" size={24} />
-            <h3 className="text-white">Decoration Shop</h3>
+            <h3 className="text-white">Koristekauppa</h3>
           </div>
           <div className="bg-yellow-400 px-4 py-2 rounded-lg border-2 border-yellow-600 flex items-center space-x-2">
             <span className="text-lg">🪙</span>
@@ -86,7 +86,7 @@ export function ShopView({ playerData, onUpdatePlayerData }: ShopViewProps) {
           </div>
         </div>
         <p className="text-white/80 text-sm">
-          Purchase decorations with your earned game coins!
+          Osta koristeita ansaitsemillasi kolikoilla!
         </p>
       </div>
 
@@ -100,7 +100,7 @@ export function ShopView({ playerData, onUpdatePlayerData }: ShopViewProps) {
               : 'bg-white/10 hover:bg-white/20 text-white border-2 border-gray-600'
           }`}
         >
-          All Items
+          Kaikki koristeet
         </Button>
         <Button
           onClick={() => setSelectedCategory('hats')}
@@ -110,7 +110,7 @@ export function ShopView({ playerData, onUpdatePlayerData }: ShopViewProps) {
               : 'bg-white/10 hover:bg-white/20 text-white border-2 border-gray-600'
           }`}
         >
-          🎩 Hats
+          🎩 Hatut
         </Button>
         <Button
           onClick={() => setSelectedCategory('accessories')}
@@ -120,7 +120,7 @@ export function ShopView({ playerData, onUpdatePlayerData }: ShopViewProps) {
               : 'bg-white/10 hover:bg-white/20 text-white border-2 border-gray-600'
           }`}
         >
-          ✨ Accessories
+          ✨ Koristeet
         </Button>
         <Button
           onClick={() => setSelectedCategory('special')}
@@ -130,7 +130,7 @@ export function ShopView({ playerData, onUpdatePlayerData }: ShopViewProps) {
               : 'bg-white/10 hover:bg-white/20 text-white border-2 border-gray-600'
           }`}
         >
-          💎 Special
+          💎 Erikoiset
         </Button>
       </div>
 
@@ -193,7 +193,7 @@ export function ShopView({ playerData, onUpdatePlayerData }: ShopViewProps) {
                   } text-white`}
                   size="sm"
                 >
-                  {owned ? 'Owned' : 'Buy'}
+                  {owned ? 'Omistat' : 'Osta'}
                 </Button>
               </div>
             </motion.div>
@@ -203,12 +203,12 @@ export function ShopView({ playerData, onUpdatePlayerData }: ShopViewProps) {
 
       {/* How to Earn Coins Info */}
       <div className="bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg border-3 border-blue-800 p-4">
-        <h4 className="text-white mb-2">💡 How to Earn Coins</h4>
+        <h4 className="text-white mb-2">💡 Miten saat lisää kolikoita?</h4>
         <ul className="text-white/90 text-sm space-y-1">
-          <li>• Talk to teachers (+10 coins)</li>
-          <li>• Explore new rooms (+15 coins)</li>
-          <li>• Complete daily challenges (+50 coins)</li>
-          <li>• Answer quiz questions correctly (+25 coins)</li>
+          <li>• Puhu uusille opettajille (+10 kolikkoa)</li>
+          <li>• Tutki uusia luokkatiloja (+15 kolikkoa)</li>
+          <li>• Tee päivittäisiä haasteita (+50 kolikkoa)</li>
+          <li>• Vastaa oikein tietovisassa (+25 kolikkoa)</li>
         </ul>
       </div>
     </div>

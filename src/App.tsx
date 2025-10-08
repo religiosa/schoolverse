@@ -50,24 +50,13 @@ export default function App() {
       </motion.div>
 
       {/* Demo Info Panel */}
-      <div className="absolute top-20 left-4 bg-black/80 text-white p-4 rounded-lg border border-gray-600 max-w-xs">
-        <h3 className="font-medium mb-2">🎮 First-Person School</h3>
+      <div className="absolute top-42 left-4 bg-black/80 text-white p-4 rounded-lg border border-gray-600 max-w-s">
+        <h3 className="font-medium mb-2">🎮 Virtuaalikoulu</h3>
         <ul className="text-sm space-y-1">
-          <li>• Click teachers to interact (💬)</li>
-          <li>• Navigate between rooms (🚪)</li>
-          <li>• Explore in first-person view</li>
-          <li>• Experience realistic perspective</li>
-          <li>• Use mobile UI controls</li>
+          <li>• Klikkaa opettajia jutellaksesi heille (💬)</li>
+          <li>• Vaihda huonetta vasemmasta alareunasta (🚪)</li>
+          <li>• Kokeile asetuksia!</li>
         </ul>
-      </div>
-
-      {/* Game Stats */}
-      <div className="absolute top-20 right-4 bg-black/80 text-white p-4 rounded-lg border border-gray-600">
-        <div className="text-sm space-y-1">
-          <div>👤 Student Perspective</div>
-          <div>🏫 Location: Teacher's Lounge</div>
-          <div>🎯 Objective: Meet Faculty</div>
-        </div>
       </div>
 
       {/* Mobile UI Components */}

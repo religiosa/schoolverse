@@ -49,7 +49,7 @@ export function SettingsView({ onClose, playerData, onUpdatePlayerData }: Settin
               <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
                 ⚙️
               </div>
-              <h2 className="text-white">Settings & Character</h2>
+              <h2 className="text-white">Asetukset & Avatar</h2>
             </div>
             
             <div className="flex items-center space-x-3">

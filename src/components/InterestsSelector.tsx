@@ -9,18 +9,19 @@ interface InterestsSelectorProps {
 
 export function InterestsSelector({ playerData, onUpdatePlayerData }: InterestsSelectorProps) {
   const availableInterests = [
-    { id: 'math', name: 'Mathematics', icon: '📊', color: 'from-red-500 to-red-600' },
-    { id: 'science', name: 'Science', icon: '🔬', color: 'from-blue-500 to-blue-600' },
-    { id: 'english', name: 'English & Literature', icon: '📚', color: 'from-green-500 to-green-600' },
-    { id: 'history', name: 'History', icon: '🏛️', color: 'from-yellow-500 to-yellow-600' },
-    { id: 'art', name: 'Art & Design', icon: '🎨', color: 'from-purple-500 to-purple-600' },
-    { id: 'music', name: 'Music', icon: '🎵', color: 'from-pink-500 to-pink-600' },
-    { id: 'sports', name: 'Sports & PE', icon: '⚽', color: 'from-orange-500 to-orange-600' },
-    { id: 'computers', name: 'Computer Science', icon: '💻', color: 'from-cyan-500 to-cyan-600' },
-    { id: 'languages', name: 'Foreign Languages', icon: '🌍', color: 'from-teal-500 to-teal-600' },
-    { id: 'drama', name: 'Drama & Theater', icon: '🎭', color: 'from-indigo-500 to-indigo-600' },
-    { id: 'cooking', name: 'Cooking & Home Ec', icon: '🍳', color: 'from-amber-500 to-amber-600' },
-    { id: 'robotics', name: 'Robotics & Engineering', icon: '🤖', color: 'from-gray-600 to-gray-700' },
+    { id: 'math', name: 'Matematiikka', icon: '📊', color: 'from-red-500 to-red-600' },
+    { id: 'science', name: 'Tiede', icon: '🔬', color: 'from-blue-500 to-blue-600' },
+    { id: 'english', name: 'Kirjallisuus', icon: '📚', color: 'from-green-500 to-green-600' },
+    { id: 'history', name: 'Historia', icon: '🏛️', color: 'from-yellow-500 to-yellow-600' },
+    { id: 'art', name: 'Taide', icon: '🎨', color: 'from-purple-500 to-purple-600' },
+    { id: 'music', name: 'Musiikki', icon: '🎵', color: 'from-pink-500 to-pink-600' },
+    { id: 'sports', name: 'Liikunta', icon: '⚽', color: 'from-orange-500 to-orange-600' },
+    { id: 'computers', name: 'Tietotekniikka', icon: '💻', color: 'from-cyan-500 to-cyan-600' },
+    { id: 'languages', name: 'Kielet', icon: '🌍', color: 'from-teal-500 to-teal-600' },
+    { id: 'drama', name: 'Draama ja teatteri', icon: '🎭', color: 'from-indigo-500 to-indigo-600' },
+    { id: 'cooking', name: 'Ruoanlaitto', icon: '🍳', color: 'from-amber-500 to-amber-600' },
+    { id: 'baking', name: 'Leipominen', icon: '🍩', color: 'from-amber-500 to-amber-600' },
+    { id: 'robotics', name: 'Elektroniikka', icon: '🤖', color: 'from-gray-600 to-gray-700' },
   ];
 
   const toggleInterest = (interestId: string) => {
@@ -48,7 +49,7 @@ export function InterestsSelector({ playerData, onUpdatePlayerData }: InterestsS
       <div className="bg-white/10 rounded-lg border-3 border-gray-700 p-4">
         <h3 className="text-white mb-2">Select Your Interests</h3>
         <p className="text-white/80 text-sm">
-          Choose up to 5 subjects you're interested in. This helps personalize your school experience!
+          Valitse max 5 kiinnostuksen kohdetta. Näin tulevat luokkatoverisi oppivat tuntemaan sinut paremmin!
         </p>
         <div className="mt-2 text-white/90 text-sm">
           Selected: {playerData.interests.length} / 5
@@ -104,7 +105,7 @@ export function InterestsSelector({ playerData, onUpdatePlayerData }: InterestsS
       {/* Selected Interests Summary */}
       {playerData.interests.length > 0 && (
         <div className="bg-gradient-to-br from-green-600 to-green-700 rounded-lg border-3 border-green-800 p-4">
-          <h4 className="text-white mb-3">Your Selected Interests:</h4>
+          <h4 className="text-white mb-3">Valitut kiinnostuksen kohteesi:</h4>
           <div className="flex flex-wrap gap-2">
             {playerData.interests.map((interestId) => {
               const interest = availableInterests.find(i => i.id === interestId);

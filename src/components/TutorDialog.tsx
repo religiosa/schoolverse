@@ -11,11 +11,11 @@ interface TutorDialogProps {
 
 export function TutorDialog({ student, onClose }: TutorDialogProps) {
   const handleDoChallenge = () => {
-    alert(`Great! Let's see how fast you can get from here to Cafeteria! (Actual implementation not yet present)`);
+    alert(`Hienoa! Katsotaan, kuinka nopeasti ehdit ruokalaan ja takaisin!\n\n(ei vielä saatavilla)`);
   };
 
   const handlePlayGame = () => {
-    alert(`${student.name} suggests playing a quick trivia game!\n\n"I know some cool facts about ${student.interests[0]}!" - ${student.name}`);
+    alert(`${student.name} ehdottaa tietovisaa!\n\n"Minusta ${student.interests[0]} on kiinnostava aihe!" - ${student.name.split(" ")[0]}`);
   };
 
   return (
@@ -41,7 +41,7 @@ export function TutorDialog({ student, onClose }: TutorDialogProps) {
                   <ImageWithFallback src={student.avatar} />
                 </div>
                 <div>
-                  <h2 className="font-medium">{student.name} - tutor</h2>
+                  <h2 className="font-medium">{student.name} - tuutori</h2>
                 </div>
               </div>
               <button
@@ -56,7 +56,7 @@ export function TutorDialog({ student, onClose }: TutorDialogProps) {
           {/* Content */}
           <div className="p-6 space-y-4">
             <div>
-              <h3 className="font-medium text-gray-900 mb-2">About Me</h3>
+              <h3 className="font-medium text-gray-900 mb-2">Tietoja minusta</h3>
               <p className="text-sm text-gray-700">{student.description}</p>
             </div>
 
@@ -64,14 +64,14 @@ export function TutorDialog({ student, onClose }: TutorDialogProps) {
               <div className="bg-green-50 p-3 rounded-lg border-2 border-green-200">
                 <div className="flex items-center space-x-2 mb-1">
                   <span className="text-lg">📍</span>
-                  <span className="text-xs font-medium text-green-700">Current Class</span>
+                  <span className="text-xs font-medium text-green-700">Tuleva luokka</span>
                 </div>
                 <span className="text-sm font-medium">{student.currentClass}</span>
               </div>
             </div>
 
             <div>
-              <h3 className="font-medium text-gray-900 mb-2">Hobbies & Interests</h3>
+              <h3 className="font-medium text-gray-900 mb-2">Harrastukset & kiinnostuksen kohteet</h3>
               <div className="flex flex-wrap gap-2">
                 {student.interests.map((hobby, index) => (
                   <span 
@@ -85,14 +85,14 @@ export function TutorDialog({ student, onClose }: TutorDialogProps) {
             </div>
 
             <div className="space-y-3">
-              <h3 className="font-medium text-gray-900">Let's Hang Out!</h3>
+              <h3 className="font-medium text-gray-900">Hengaillaan!</h3>
               
               <Button 
                 variant="outline"
                 className="w-full border-2 border-blue-500 text-blue-700 hover:bg-blue-50"
                 onClick={handleDoChallenge}
               >
-                Do a challenge
+                🏆🪙 Suorita haaste
               </Button>
 
               <Button 
@@ -100,7 +100,7 @@ export function TutorDialog({ student, onClose }: TutorDialogProps) {
                 className="w-full border-2 border-orange-400 text-orange-700 hover:bg-orange-50"
                 onClick={handlePlayGame}
               >
-                🧠 Play Trivia Game
+                🧠🪙 Pelaa tietovisaa
               </Button>
             </div>
           </div>

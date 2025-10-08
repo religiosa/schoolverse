@@ -94,7 +94,7 @@ export function CharacterCustomizer({ playerData, onUpdatePlayerData }: Characte
       <div className="space-y-4">
         {/* Hair Color */}
         <div className="bg-white/10 rounded-lg border-2 border-gray-700 p-4">
-          <h4 className="text-white mb-3">Hair Color</h4>
+          <h4 className="text-white mb-3">Hiusten väri</h4>
           <div className="grid grid-cols-6 gap-2">
             {hairColors.map((hair) => (
               <button
@@ -114,7 +114,7 @@ export function CharacterCustomizer({ playerData, onUpdatePlayerData }: Characte
 
         {/* Shirt Color */}
         <div className="bg-white/10 rounded-lg border-2 border-gray-700 p-4">
-          <h4 className="text-white mb-3">Shirt Color</h4>
+          <h4 className="text-white mb-3">Paidan väri</h4>
           <div className="grid grid-cols-6 gap-2">
             {shirtColors.map((shirt) => (
               <button
@@ -135,7 +135,7 @@ export function CharacterCustomizer({ playerData, onUpdatePlayerData }: Characte
         {/* Owned Decorations */}
         {playerData.ownedDecorations.length > 0 && (
           <div className="bg-white/10 rounded-lg border-2 border-gray-700 p-4">
-            <h4 className="text-white mb-3">Your Decorations</h4>
+            <h4 className="text-white mb-3">Omat koristeet</h4>
             <div className="grid grid-cols-6 gap-2">
               {playerData.ownedDecorations.map((decoration) => (
                 <button

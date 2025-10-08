@@ -12,7 +12,7 @@ interface TeacherDialogProps {
 export function TeacherDialog({ teacher, onClose }: TeacherDialogProps) {
   const handleWatchVideo = () => {
     // In a real app, this would open a video player
-    alert(`Opening ${teacher.name}'s ${teacher.subject} introduction video!\n\nURL: ${teacher.videoUrl}`);
+    alert(`Avataan opettajan ${teacher.name} (${teacher.subject}) esittelyvideo!\n\nURL: ${teacher.videoUrl}\n\n(Ei saatavilla tässä versiossa)`);
   };
 
   return (
@@ -39,7 +39,7 @@ export function TeacherDialog({ teacher, onClose }: TeacherDialogProps) {
                 </div>
                 <div>
                   <h2 className="font-medium">{teacher.name}</h2>
-                  <p className="text-sm opacity-90">{teacher.subject} Teacher</p>
+                  <p className="text-sm opacity-90">Aine: {teacher.subject}</p>
                 </div>
               </div>
               <button
@@ -54,12 +54,12 @@ export function TeacherDialog({ teacher, onClose }: TeacherDialogProps) {
           {/* Content */}
           <div className="p-6 space-y-4">
             <div>
-              <h3 className="font-medium text-gray-900 mb-2">About Me</h3>
+              <h3 className="font-medium text-gray-900 mb-2">Tietoja minusta</h3>
               <p className="text-sm text-gray-700">{teacher.description}</p>
             </div>
 
             <div className="space-y-2">
-              <h3 className="font-medium text-gray-900">What I Teach</h3>
+              <h3 className="font-medium text-gray-900">Mitä opetan</h3>
               <div className="bg-gray-100 p-3 rounded-lg border-2 border-gray-300">
                 <div className="flex items-center space-x-2">
                   <span className="text-lg">📚</span>
@@ -69,30 +69,30 @@ export function TeacherDialog({ teacher, onClose }: TeacherDialogProps) {
             </div>
 
             <div className="space-y-3">
-              <h3 className="font-medium text-gray-900">Actions</h3>
+              <h3 className="font-medium text-gray-900">Toiminnot</h3>
               
               <Button 
                 variant="outline"
                 className="w-full border-2 border-red-500 text-red-700 hover:bg-red-50"
                 onClick={handleWatchVideo}
               >
-                🎥 Watch Introduction Video
+                🎥 Katso esittelyvideo
               </Button>
 
               <Button 
                 variant="outline"
                 className="w-full border-2 border-green-500 text-green-700 hover:bg-green-50"
-                onClick={() => alert(`Scheduling a meeting with ${teacher.name}...`)}
+                onClick={() => alert(`Sovitaan tapaaminen opettajan ${teacher.name} kanssa...\n\n(ei saatavilla vielä)`)}
               >
-                📅 Schedule Meeting
+                📅 Sovi tapaaminen
               </Button>
 
               <Button 
                 variant="outline"
                 className="w-full border-2 border-blue-500 text-blue-700 hover:bg-blue-50"
-                onClick={() => alert(`Viewing ${teacher.name}'s classroom...`)}
+                onClick={() => alert(`Tarkastellaan opettajan ${teacher.name} luokkaa...\n\n(ei saatavilla vielä)`)}
               >
-                🏫 Visit Classroom
+                🏫 Käy luokkahuoneessa
               </Button>
             </div>
           </div>

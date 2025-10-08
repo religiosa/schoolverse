@@ -41,7 +41,7 @@ export function Avatar({ position, emoji, name, type, onClick }: AvatarProps) {
       </div>
 
       {/* Movement Animation for Students */}
-      {type === 'student' && (
+      {type !== 'teacher' && (
         <motion.div
           className="absolute -bottom-2 left-1/2 transform -translate-x-1/2"
           animate={{ opacity: [0.5, 1, 0.5] }}

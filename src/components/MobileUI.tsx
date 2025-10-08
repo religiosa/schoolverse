@@ -20,7 +20,7 @@ export function MobileUI({ onToggleMap, isMapExpanded, onOpenSettings, playerCoi
           <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
             🏫
           </div>
-          <h1 className="text-white font-medium">SchoolVerse</h1>
+          <h1 className="text-white font-medium">Virtuaalikoulu</h1>
         </div>
 
         <div className="flex items-center space-x-2">
@@ -51,28 +51,28 @@ export function MobileUI({ onToggleMap, isMapExpanded, onOpenSettings, playerCoi
         <Button
           variant="ghost"
           className="flex flex-col items-center space-y-1 text-white hover:bg-white/10"
-          onClick={() => alert('Opening chat...')}
+          onClick={() => alert('Avataan chattia... (ei vielä käytettävissä)')}
         >
           <span className="text-lg">👥</span>
-          <span className="text-xs">Interact</span>
+          <span className="text-xs">Keskustele</span>
         </Button>
 
         <Button
           variant="ghost"
           className="flex flex-col items-center space-y-1 text-white hover:bg-white/10"
-          onClick={() => alert('Opening room map...')}
+          onClick={() => alert('Avataan kartta... (ei vielä käytettävissä)')}
         >
           <span className="text-lg">🏫</span>
-          <span className="text-xs">Rooms</span>
+          <span className="text-xs">Huoneet</span>
         </Button>
 
         <Button
           variant="ghost"
           className="flex flex-col items-center space-y-1 text-white hover:bg-white/10"
-          onClick={() => alert('Opening student profile...')}
+          onClick={() => alert('Avataan oppilaan profiili... (ei vielä käytettävissä)')}
         >
           <span className="text-lg">👤</span>
-          <span className="text-xs">Profile</span>
+          <span className="text-xs">Avatar</span>
         </Button>
 
         <Button
@@ -81,7 +81,7 @@ export function MobileUI({ onToggleMap, isMapExpanded, onOpenSettings, playerCoi
           onClick={onOpenSettings}
         >
           <span className="text-lg">⚙️</span>
-          <span className="text-xs">Settings</span>
+          <span className="text-xs">Asetukset</span>
         </Button>
       </div>
 
@@ -95,40 +95,40 @@ export function MobileUI({ onToggleMap, isMapExpanded, onOpenSettings, playerCoi
           transition={{ duration: 0.3 }}
         >
           <div className="p-4 border-b-2 border-gray-200">
-            <h2 className="font-medium text-gray-900">Game Menu</h2>
+            <h2 className="font-medium text-gray-900">Menu</h2>
           </div>
           
           <div className="p-4 space-y-3">
             <Button 
               variant="outline" 
               className="w-full justify-start"
-              onClick={() => alert('Opening achievements...')}
+              onClick={() => alert('Avataan saavutukset... (ei vielä käytettävissä)')}
             >
-              🏆 Achievements
+              🏆 Saavutukset
             </Button>
             
             <Button 
               variant="outline" 
               className="w-full justify-start"
-              onClick={() => alert('Opening leaderboard...')}
+              onClick={() => alert('Avataan pistetaulukko... (ei vielä käytettävissä)')}
             >
-              📊 Leaderboard
+              📊 Pistetaulukko
             </Button>
             
             <Button 
               variant="outline" 
               className="w-full justify-start"
-              onClick={() => alert('Opening help...')}
+              onClick={() => alert('Avataan apuja ja usein kysytyt kysymykset... (ei vielä käytettävissä)')}
             >
-              ❓ Help & FAQ
+              ❓ Apua ja UKK
             </Button>
             
             <Button 
               variant="outline" 
               className="w-full justify-start"
-              onClick={() => alert('Opening feedback...')}
+              onClick={() => alert('Avataan palautelomake... (ei vielä käytettävissä)')}
             >
-              💡 Send Feedback
+              💡 Lähetä palautetta
             </Button>
           </div>
 
