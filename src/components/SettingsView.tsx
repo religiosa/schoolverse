@@ -75,13 +75,13 @@ export function SettingsView({ onClose, playerData, onUpdatePlayerData }: Settin
           <Tabs defaultValue="character" className="w-full">
             <TabsList className="grid w-full grid-cols-3 bg-black/30 border-2 border-gray-700">
               <TabsTrigger value="character" className="data-[state=active]:bg-blue-600 data-[state=active]:text-white">
-                👤 Character
+                👤 Avatar
               </TabsTrigger>
               <TabsTrigger value="interests" className="data-[state=active]:bg-green-600 data-[state=active]:text-white">
-                ⭐ Interests
+                ⭐ Kiinnostuksenkohteet
               </TabsTrigger>
               <TabsTrigger value="shop" className="data-[state=active]:bg-yellow-600 data-[state=active]:text-white">
-                🛒 Shop
+                🛒 Kauppa
               </TabsTrigger>
             </TabsList>
 
