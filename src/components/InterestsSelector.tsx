@@ -47,12 +47,12 @@ export function InterestsSelector({ playerData, onUpdatePlayerData }: InterestsS
     <div className="space-y-4">
       {/* Header */}
       <div className="bg-white/10 rounded-lg border-3 border-gray-700 p-4">
-        <h3 className="text-white mb-2">Select Your Interests</h3>
+        <h3 className="text-white mb-2">Valitse kiinnostuksenkohteesi</h3>
         <p className="text-white/80 text-sm">
           Valitse max 5 kiinnostuksen kohdetta. Näin tulevat luokkatoverisi oppivat tuntemaan sinut paremmin!
         </p>
         <div className="mt-2 text-white/90 text-sm">
-          Selected: {playerData.interests.length} / 5
+          Valittu: {playerData.interests.length} / 5
         </div>
       </div>
 
